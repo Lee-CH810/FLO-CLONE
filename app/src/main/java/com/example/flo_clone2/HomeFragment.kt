@@ -92,7 +92,10 @@ class HomeFragment : Fragment() {
                 /** song SharedPreference에 songId를 저장 */
                 val homeSP = homeContext.getSharedPreferences("song", MODE_PRIVATE)
                 val homeSPEditor = homeSP.edit()
-                val songId = songDB.songDao().getSongByAlbumIdx(album.id)
+//                val songId = songDB.songDao().getSongByAlbumIdx(album.id)
+                val songsInAlbum = songDB.songDao().getSongsByAlbumIdx(album.id)
+                val songId = songsInAlbum[0].id
+
                 Log.d("song spf", "Home.onPlayAlbum: " + homeSP.getInt("songId", -1).toString())
                 Log.d("Song ID", "Home: $songId")
                 homeSPEditor.putInt("songId", songId) // 선택한 앨범의 Song의 id
@@ -104,6 +107,9 @@ class HomeFragment : Fragment() {
 
                 /** MiniPlayer에 반영 */
                 homeContext.setMiniPlayer(song)
+                homeContext.songs.clear()
+                homeContext.songs.addAll(songsInAlbum)
+                homeContext.nowPos = 0
             }
 
             // item 삭제 이벤트

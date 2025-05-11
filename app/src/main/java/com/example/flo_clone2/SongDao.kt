@@ -33,4 +33,7 @@ interface SongDao {
      */
     @Query("SELECT id FROM SongTable WHERE albumIdx = :albumIdx")
     fun getSongByAlbumIdx(albumIdx: Int): Int
+
+    @Query("SELECT * FROM SongTable WHERE albumIdx = :albumIdx")
+    fun getSongsByAlbumIdx(albumIdx: Int): List<Song>
 }

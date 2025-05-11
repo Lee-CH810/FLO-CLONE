@@ -60,6 +60,10 @@ class MainActivity : AppCompatActivity() {
          * BottomNavigation 사용을 위한 초기화
          */
         initBottomNavigation()
+
+        // 데이터가 잘 들어갔는지 log를 통해 확인
+        val _songs = songDB.songDao().getSongs()
+        Log.d("DB data", _songs.toString())
     }
 
     /**
@@ -129,7 +133,7 @@ class MainActivity : AppCompatActivity() {
          */
         binding.mainPlayerCl.setOnClickListener {
             Log.d("Flow", "MainAct: setOnClickListener")
-         /** SongDatabase를 사용한 후 - SharedPreference를 활용하여 Song의 ID를 넘겨 SongActivity에서 그 값을 가지고 DB를 조회하도록 함 */
+            /** SongDatabase를 사용한 후 - SharedPreference를 활용하여 Song의 ID를 넘겨 SongActivity에서 그 값을 가지고 DB를 조회하도록 함 */
             val spf = getSharedPreferences("song", MODE_PRIVATE)
             Log.d("song spf", "MainAct.setOnClickListener: " + spf.getInt("songId", -1).toString())
             val editor = spf.edit() // SharedPreference 작업을 위해 editor 선언
@@ -309,6 +313,7 @@ class MainActivity : AppCompatActivity() {
      */
     private fun inputDummySongs() {
         val songDB = SongDatabase.getInstance(this)!! // Song data를 넣을 MusicDatabase 객체
+//        songDB.clearAllTables()
 
         // SongDB에 데이터가 있는지 확인하기 위해서는 SongDB의 데이터를 다 받아와야 할 것.
         val songs = songDB.songDao().getSongs()
