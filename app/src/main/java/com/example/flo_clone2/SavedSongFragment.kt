@@ -15,6 +15,7 @@ class SavedSongFragment : Fragment() {
 
     lateinit var binding: FragmentSavedSongBinding
     lateinit var songDB: SongDatabase // 원래라면 다른 DB를 쓰거나, SongDao에서 islike인 데이터만 골라와야 할텐데, 번거로우니 일단은 넘김
+    var isClick: Boolean = false
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -44,6 +45,14 @@ class SavedSongFragment : Fragment() {
         /** RecyclerView */
         val savedSongRVAdapter = SavedSongRVAdapter() // adapter와 data list 연결
 
+        /** 전체선택 버튼 클릭 */
+        binding.lockerSelectAllLayout.setOnClickListener{
+            setSelectButton(true)
+        }
+        binding.lockerUnselectAllLayout.setOnClickListener{
+            setSelectButton(false)
+        }
+
         /** item 클릭 시 이벤트 처리: more 클릭 시 삭제 */
         savedSongRVAdapter.setMyLockerItemClickListener(object: SavedSongRVAdapter.lockerItemClickListener{
             // 클릭 리스너를 구체화하여 DB도 업데이트
@@ -51,11 +60,30 @@ class SavedSongFragment : Fragment() {
                 // DB에 곡의 좋아요 상태 변경
                 songDB.songDao().updateIsLikeById(false, songId)
             }
-
         })
 
         binding.lockerContentRv.adapter = savedSongRVAdapter // adapter와 RecyclerView 연결
         // 좋아요 된 곡들만 추가
         savedSongRVAdapter.addSongs(songDB.songDao().getLikedSongs(true) as ArrayList<Song>)
+    }
+
+    private fun setSelectButton(isClick: Boolean) {
+        val mainContext = context as MainActivity
+
+        if (isClick) {
+            // 선택 해제 -> 전체 선택
+            mainContext.binding.mainBnv.visibility = View.VISIBLE
+            mainContext.binding.bottomSheetDialog.visibility = View.GONE
+
+            binding.lockerSelectAllLayout.visibility = View.VISIBLE
+            binding.lockerUnselectAllLayout.visibility = View.GONE
+        } else {
+            // 전체 선택 -> 선택 해제
+            mainContext.binding.mainBnv.visibility = View.GONE
+            mainContext.binding.bottomSheetDialog.visibility = View.VISIBLE
+
+            binding.lockerSelectAllLayout.visibility = View.GONE
+            binding.lockerUnselectAllLayout.visibility = View.VISIBLE
+        }
     }
 }

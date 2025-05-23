@@ -20,7 +20,7 @@ class HomeFragment : Fragment() {
 
     lateinit var binding: FragmentHomeBinding
 
-    lateinit var songDB: SongDatabase
+    private lateinit var songDB: SongDatabase
     val albumDatas = arrayListOf<Album>() // ArrayList
     private var song = Song()
     private var nowPos: Int = 0
@@ -133,7 +133,9 @@ class HomeFragment : Fragment() {
 //            add(Album("Weekend", "태연 (Tae Yeon)", R.drawable.img_album_exp6))
 //        }
         // 같은 context 안에서는 함수만 사용 가능하고, 변수는 사용 불가
-        songDB = SongDatabase.getInstance(context as MainActivity)!!
+//        songDB = SongDatabase.getInstance(context as MainActivity)!!
+//        --> 강의 듣기 전에는 MainActivity의 context 가져와서 사용했음
+        songDB = SongDatabase.getInstance(requireContext())!!
         albumDatas.addAll(songDB.albumDao().getAlbums())
     }
 

@@ -60,10 +60,6 @@ class MainActivity : AppCompatActivity() {
          * BottomNavigation 사용을 위한 초기화
          */
         initBottomNavigation()
-
-        // 데이터가 잘 들어갔는지 log를 통해 확인
-        val _songs = songDB.songDao().getSongs()
-        Log.d("DB data", _songs.toString())
     }
 
     /**
