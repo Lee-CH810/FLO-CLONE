@@ -1,21 +1,16 @@
-package com.example.flo_clone2
+package com.example.flo_clone2.ui.song
 
-import android.content.SharedPreferences
-import android.content.res.ColorStateList
-import android.graphics.Color
 import android.media.MediaPlayer
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
 import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.flo_clone2.databinding.ActivitySongBinding
 import com.google.gson.Gson
-import java.util.Timer
-import androidx.core.graphics.toColorInt
-import com.example.flo_clone2.Song
+import com.example.flo_clone2.R
+import com.example.flo_clone2.data.entities.Song
+import com.example.flo_clone2.data.local.SongDatabase
 
 // 상속 시에는 상속클래스()의 형태로 작성해야함.
 class SongActivity : AppCompatActivity() {

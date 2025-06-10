@@ -1,14 +1,14 @@
-package com.example.flo_clone2
+package com.example.flo_clone2.ui.login
 
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import com.example.flo_clone2.data.local.SongDatabase
+import com.example.flo_clone2.ui.signup.SignupActivity
 import com.example.flo_clone2.databinding.ActivityLoginBinding
+import com.example.flo_clone2.ui.main.MainActivity
 
 class LoginActivity : AppCompatActivity() {
 

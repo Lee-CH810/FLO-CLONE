@@ -1,4 +1,4 @@
-package com.example.flo_clone2
+package com.example.flo_clone2.data.entities
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

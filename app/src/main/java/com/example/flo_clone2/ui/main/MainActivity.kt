@@ -1,5 +1,5 @@
 
-package com.example.flo_clone2
+package com.example.flo_clone2.ui.main
 
 import android.content.Intent
 import android.media.MediaPlayer
@@ -8,7 +8,16 @@ import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.flo_clone2.ui.main.home.HomeFragment
+import com.example.flo_clone2.R
+import com.example.flo_clone2.data.entities.Album
+import com.example.flo_clone2.data.entities.Song
+import com.example.flo_clone2.data.local.SongDatabase
+import com.example.flo_clone2.ui.song.SongActivity
 import com.example.flo_clone2.databinding.ActivityMainBinding
+import com.example.flo_clone2.ui.main.locker.LockerFragment
+import com.example.flo_clone2.ui.main.look.LookFragment
+import com.example.flo_clone2.ui.main.search.SearchFragment
 
 class MainActivity : AppCompatActivity() {
 

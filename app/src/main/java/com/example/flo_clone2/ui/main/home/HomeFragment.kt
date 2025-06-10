@@ -1,10 +1,6 @@
-package com.example.flo_clone2
+package com.example.flo_clone2.ui.main.home
 
-import android.app.Activity
-import android.content.Context
 import android.content.Context.MODE_PRIVATE
-import android.content.Intent
-import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -13,7 +9,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewpager2.widget.ViewPager2
+import com.example.flo_clone2.R
+import com.example.flo_clone2.data.entities.Album
+import com.example.flo_clone2.data.entities.Song
+import com.example.flo_clone2.data.local.SongDatabase
 import com.example.flo_clone2.databinding.FragmentHomeBinding
+import com.example.flo_clone2.ui.main.MainActivity
+import com.example.flo_clone2.ui.main.album.AlbumFragment
 import com.google.gson.Gson
 
 class HomeFragment : Fragment() {

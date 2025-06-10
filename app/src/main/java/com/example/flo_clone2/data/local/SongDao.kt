@@ -1,6 +1,7 @@
-package com.example.flo_clone2
+package com.example.flo_clone2.data.local
 
 import androidx.room.*
+import com.example.flo_clone2.data.entities.Song
 
 @Dao
 interface SongDao {

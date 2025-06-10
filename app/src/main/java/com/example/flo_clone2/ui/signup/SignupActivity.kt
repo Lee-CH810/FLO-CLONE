@@ -1,13 +1,11 @@
-package com.example.flo_clone2
+package com.example.flo_clone2.ui.signup
 
 import android.os.Bundle
 import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import com.example.flo_clone2.data.entities.User
+import com.example.flo_clone2.data.local.SongDatabase
 import com.example.flo_clone2.databinding.ActivitySignupBinding
-import kotlin.math.sign
 
 // 앱을 지워주고 다시 설치하면 DB 구조 변동에 대처할 수 있음
 

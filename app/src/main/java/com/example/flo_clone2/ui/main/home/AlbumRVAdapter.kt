@@ -1,11 +1,11 @@
-package com.example.flo_clone2
+package com.example.flo_clone2.ui.main.home
 
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.flo_clone2.data.entities.Album
 import com.example.flo_clone2.databinding.ItemAlbumBinding
-import com.example.flo_clone2.Album
 
 // Recycler View 어댑터
 // item view에 데이터를 바인딩해주기 위해서는 데이터 리스트를 매개변수로 받아야 함.
@@ -64,7 +64,7 @@ class  AlbumRVAdapter(private val albumList: ArrayList<Album>) : RecyclerView.Ad
      * ViewHolder를 생성해주어야 할 때 호출되는 함수.
      * ItemView 객체를 만든 후에, 재활용을 위해 ViewHolder에 던져주는 작업
      */
-    override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): AlbumRVAdapter.ViewHolder {
+    override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ViewHolder {
         // ItemView 객체를 만듦
         val binding: ItemAlbumBinding = ItemAlbumBinding.inflate(LayoutInflater.from(viewGroup.context), viewGroup, false)
         // 만든 item 객체를 ViewHolder에 던져주고 있음.
@@ -77,7 +77,7 @@ class  AlbumRVAdapter(private val albumList: ArrayList<Album>) : RecyclerView.Ad
      * onBindViewHoler가 position값을 받고 있기 때문에, RecyclerView에서의 클릭 이벤트를 처리할 수 있음. --> 어떤 앨범을 눌렀는 지에 따라 대응할 수 있으니까.
      * @param position recyclerView에서의 인덱스. albumList에 데이터를 순차적으로 바인딩하기 위해 필요.
      */
-    override fun onBindViewHolder(holder: AlbumRVAdapter.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         // albumList에서의 album 데이터에 대해 순차적으로 bind를 수행.
         // 즉, 받아온 album 데이터를 item 객체에 넣어줌.
         holder.bind(albumList[position])
