@@ -57,7 +57,9 @@ class LoginActivity : AppCompatActivity() {
             Log.d("LOGIN_ACT/GET_USER", "userId : ${user.id}, $user")
             saveJWT(user.id) // user의 id를 넢어 JWT에 저장
             startMainActivity()
+            return
         }
+
         Toast.makeText(this, "회원 정보가 존재하지 않습니다.", Toast.LENGTH_SHORT).show() // 회원정보가 없다면 표시됨
     }
 

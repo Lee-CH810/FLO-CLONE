@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.flo_clone2">
+    <!-- package: 안드로이드 파일의 루트 패키지명. 파일이 어디에 있는지에 대한 경로 -->
+    <!-- 구조화는 보통 화면별, 기능별로 할 수 있음 -> 영상에서는 MVC 패턴에 맞게 구조화함 -->
+
+<!--    <uses-permission android:name="android.permission.INTERNET"/>-->
+
+    <!--서버 연결이 되지 않을 때, application에 다음과 같은 코드를 추가할 수 있음.
+        이는, http의 보안성 문제 때문에 Android에서 막아 놓은 http 서버 연결을 허용해주는 코드임.
+        이것 없이 서버 연결을 위해서는 https 서버를 사용해야함-->
+    <!--android:usesCleartextTraffic="true"-->
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.FLO_CLONE2"
+        tools:targetApi="31">
+        <activity
+            android:name=".ui.signup.SignupActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.login.LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.song.SongActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.main.MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
